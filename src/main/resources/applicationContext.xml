@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -7,9 +8,13 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="app.properties"/>
+
     <bean id="myPet" class="spring_introduction.Dog"></bean>
     <bean id="myPerson" class="spring_introduction.Person">
         <property name="pet" ref="myPet"/>
+        <property name="name" value="${person.name}"/>
+        <property name="age" value="${person.age}"/>
     </bean>
 
 </beans>
